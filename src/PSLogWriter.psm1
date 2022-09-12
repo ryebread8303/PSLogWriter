@@ -36,6 +36,16 @@ function Start-Log {
     )
     [PSLogger]::new($path)
 }
+
+function Stop-Log {
+    [CmdletBinding()]
+    param(
+        [Parameter(mandatory=$true)]
+        [PSLogger]
+        $AsyncLogger
+    )
+    $AsyncLogger.StopLogging()
+}
 function Write-Log {
     [CmdletBinding()]
     param(
