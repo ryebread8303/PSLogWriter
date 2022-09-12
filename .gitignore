@@ -1,0 +1,3 @@
+# ignore the temp folder used to build the distributable zip file
+
+build/*
