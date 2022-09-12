@@ -9,7 +9,7 @@ BeforeAll{
 }    
 Describe "PSLogger class"{
     BeforeAll {
-        $logger = new-object PSLogger("$here/test.log")
+        $logger = new-object PSLogger("$testdrive/test.log")
         $loggerMembers = $logger | get-member -Force
     }
     Context "should have methods" {
@@ -17,7 +17,7 @@ Describe "PSLogger class"{
             @{method="QueueLog"}
             @{method="_StartLogging"}
             @{method="StopLogging"}) {
-            $loggerMembers.name -contains $method | Should -Be $true
+            $method | Should -BeIn $loggerMembers.name
         }
     }
     AfterAll {
